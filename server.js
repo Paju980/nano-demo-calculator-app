@@ -8,24 +8,27 @@ const baseUrl = '/calculator'
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// })
-
 const baseRouter = express.Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.send('Hello world');
+    return res.send('Hello world!');
 });
 
 baseRouter.post('/add', (req, res) => {
-    console.log(req.body.name);
-    res.json({ "name": "himanshu" });
+    const num1 = Number(req.body.first);
+    const num2 = Number(req.body.second);
+    const result = num1 + num2;
+    const stresult = result.toString();
+    res.json({ "result": stresult });
 });
 
 
 baseRouter.post('/subtract', (req, res) => {
-    res.json({ "": null });
+    const num1 = Number(req.body.first);
+    const num2 = Number(req.body.second);
+    const result = num1 - num2;
+    const stresult = result.toString();
+    res.json({ "result": stresult });
 });
 
 app.use(baseUrl, baseRouter);
