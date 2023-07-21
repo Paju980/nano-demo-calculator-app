@@ -18,8 +18,8 @@ baseRouter.post('/add', (req, res) => {
     const num1 = Number(req.body.first);
     const num2 = Number(req.body.second);
     const result = num1 + num2;
-    const stresult = result.toString();
-    res.json({ "result": stresult });
+    // const stresult = result.toString();
+    res.json({ "result": result });
 });
 
 
@@ -27,8 +27,8 @@ baseRouter.post('/subtract', (req, res) => {
     const num1 = Number(req.body.first);
     const num2 = Number(req.body.second);
     const result = num1 - num2;
-    const stresult = result.toString();
-    res.json({ "result": stresult });
+    // const stresult = result.toString();
+    res.json({ "result": result });
 });
 
 app.use(baseUrl, baseRouter);
