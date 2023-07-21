@@ -5,16 +5,22 @@ const PORT = process.env.PORT || 8080;
 
 const baseUrl = '/calculator'
 
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+
+// app.get('/', (req, res) => {
+//     res.send('Hello World');
+// })
 
 const baseRouter = express.Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.send('');
+    return res.send('Hello world');
 });
 
 baseRouter.post('/add', (req, res) => {
-    res.json({ "": null });
+    console.log(req.body.name);
+    res.json({ "name": "himanshu" });
 });
 
 
